@@ -15,64 +15,64 @@ import {
   CardHeader,
   CardTitle
 } from '@/components/ui/card';
-import { Product } from './product';
+import { Users } from './users';
 import { useRouter } from 'next/navigation';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { useUsers } from 'app/hooks/useUsers';
 
-export function ProductsTable({
-  offset,
-  totalProducts
-}: {
-  offset: number;
-  totalProducts: number;
-}) {
-  let router = useRouter();
-  let productsPerPage = 5;
+export function UsersTable() {
+  // let router = useRouter();
+  // let productsPerPage = 5;
 
-  function prevPage() {
-    router.back();
-  }
+  // function prevPage() {
+  //   router.back();
+  // }
 
-  function nextPage() {
-    router.push(`/?offset=${offset}`, { scroll: false });
-  }
+  // function nextPage() {
+  //   router.push(`/?offset=${offset}`, { scroll: false });
+  // }
+
+  const { useAllUsers } = useUsers();
+  const { users, isLoading } = useAllUsers();
+  console.log(users, "<---- users");
 
   return (
     <Card>
       <CardHeader>
-        <CardTitle>Products</CardTitle>
+        <CardTitle>Data Warga</CardTitle>
         <CardDescription>
-          Manage your products and view their sales performance.
+          Manajemen data warga
         </CardDescription>
       </CardHeader>
       <CardContent>
         <Table>
           <TableHeader>
             <TableRow>
-              <TableHead className="hidden w-[100px] sm:table-cell">
+              {/* <TableHead className="hidden w-[100px] sm:table-cell">
                 <span className="sr-only">Image</span>
-              </TableHead>
-              <TableHead>Name</TableHead>
-              <TableHead>Status</TableHead>
-              <TableHead className="hidden md:table-cell">Price</TableHead>
+              </TableHead> */}
+              <TableHead>Nama Lengkap</TableHead>
+              <TableHead>NIK</TableHead>
+              <TableHead>Golongan Darah</TableHead>
+              <TableHead className="hidden md:table-cell">Nomor Telepon</TableHead>
               <TableHead className="hidden md:table-cell">
-                Total Sales
+                Alamat Lengkap
               </TableHead>
-              <TableHead className="hidden md:table-cell">Created at</TableHead>
+              <TableHead className="hidden md:table-cell">Provinsi</TableHead>
+              <TableHead className="hidden md:table-cell">Kabupaten/Kota</TableHead>
+              <TableHead className="hidden md:table-cell">Kecamatan</TableHead>
               <TableHead>
                 <span className="sr-only">Actions</span>
               </TableHead>
             </TableRow>
           </TableHeader>
           <TableBody>
-            {/* {products.map((product) => (
-              <Product key={product.id} product={product} />
-            ))} */}
+            <Users usersData={users} />
           </TableBody>
         </Table>
       </CardContent>
-      <CardFooter>
+      {/* <CardFooter>
         <form className="flex items-center w-full justify-between">
           <div className="text-xs text-muted-foreground">
             Showing{' '}
@@ -104,7 +104,7 @@ export function ProductsTable({
             </Button>
           </div>
         </form>
-      </CardFooter>
+      </CardFooter> */}
     </Card>
   );
 }

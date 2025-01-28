@@ -78,11 +78,11 @@ function DesktopNav() {
           <ShoppingCart className="h-5 w-5" />
         </NavItem>
 
-        <NavItem href="/" label="Products">
-          <Package className="h-5 w-5" />
+        <NavItem href="/" label="Data Warga">
+          <Users2 className="h-5 w-5" />
         </NavItem>
 
-        <NavItem href="/customers" label="Customers">
+        <NavItem href="/customers" label="Calon Dipilih">
           <Users2 className="h-5 w-5" />
         </NavItem>
 
@@ -152,7 +152,7 @@ function MobileNav() {
             className="flex items-center gap-4 px-2.5 text-muted-foreground hover:text-foreground"
           >
             <Users2 className="h-5 w-5" />
-            Customers
+            Calon Dipilih
           </Link>
           <Link
             href="#"
@@ -179,7 +179,7 @@ function DashboardBreadcrumb() {
         <BreadcrumbSeparator />
         <BreadcrumbItem>
           <BreadcrumbLink asChild>
-            <Link href="#">Products</Link>
+            <Link href="#">Data Warga</Link>
           </BreadcrumbLink>
         </BreadcrumbItem>
         <BreadcrumbSeparator />

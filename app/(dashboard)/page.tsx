@@ -1,17 +1,9 @@
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { File, PlusCircle } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { ProductsTable } from './products-table';
+import { UsersTable } from './users-table';
 
-export default async function ProductsPage(
-  props: {
-    searchParams: Promise<{ q: string; offset: string }>;
-  }
-) {
-  const searchParams = await props.searchParams;
-  const search = searchParams.q ?? '';
-  const offset = searchParams.offset ?? 0;
-
+export default async function UsersPage() {
   return (
     <Tabs defaultValue="all">
       <div className="flex items-center">
@@ -39,11 +31,7 @@ export default async function ProductsPage(
         </div>
       </div>
       <TabsContent value="all">
-        {/* <ProductsTable
-          products={products}
-          offset={newOffset ?? 0}
-          totalProducts={totalProducts}
-        /> */}
+        <UsersTable />
       </TabsContent>
     </Tabs>
   );
